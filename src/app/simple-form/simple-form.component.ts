@@ -3,7 +3,14 @@ import { Component, OnInit, Input, Output, EventEmitter } from '@angular/core';
 @Component({
   selector: 'app-simple-form',
   template: `
-    <input #myInput type="text" [(ngModel)]="message">
+    <input 
+    #myInput 
+    type="text" 
+    [(ngModel)]="message"
+    [ngClass]="{ mousedown:isMouseDown }"
+    (mousedown)="isMouseDown = true"
+    (mousedup)="isMouseDown = false"
+    (mouseleave)="isMouseDown = false">
     <button (click)="update.emit({ text:message })">Click me!</button>
   `,
   styles: [`
@@ -24,10 +31,15 @@ import { Component, OnInit, Input, Output, EventEmitter } from '@angular/core';
     button {
       border: none;
     }
+
+    .mousedown {
+      border: 2px solid green;
+    }
   `]
 })
 export class SimpleFormComponent implements OnInit {
 
+  isMouseDown
   @Input() message;
   @Output() update = new EventEmitter();
 
