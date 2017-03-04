@@ -11,7 +11,12 @@ import { Component, Inject } from '@angular/core';
     [message]="message.text"
     (update)="onUpdate(message.id, $event.text)">
     </app-simple-form>  
-</div>`
+</div>`,
+styles: [`
+  app-simple-form {
+    margin-bottom: 10px;
+  }
+`]
 })
 export class AppComponent {
   onUpdate(id, text) {
