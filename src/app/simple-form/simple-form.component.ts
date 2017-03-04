@@ -3,9 +3,9 @@ import { Component, OnInit } from '@angular/core';
 @Component({
   selector: 'app-simple-form',
   template: `<div>
-  <input #myInput type="text">
-  <button (mouseover)="onClick($event, myInput.value)">Click me!</button>
-</div>
+    <input #myInput type="text">
+    <button (mouseover)="onClick($event, myInput.value)">Click me!</button>
+  </div>
   `,
   styles: []
 })
